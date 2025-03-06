@@ -1,6 +1,5 @@
 # 🕵️ Mafia Mystery
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/)
 [![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-orange.svg)](https://developer.mozilla.org/en-US/docs/Web)
 
@@ -81,7 +80,8 @@ Can you survive the mystery and emerge victorious?
    cd mafia-mystery
 
 
-   🎯 How to Play
+🎯 How to Play
+
 1. Join a Game: Enter a game room with friends or play with random players
 2. Receive a Role: Each player is secretly assigned a role with unique abilities
 3. Play Through Phases: Alternate between night and day phases
@@ -89,7 +89,7 @@ Can you survive the mystery and emerge victorious?
 5. Discuss and Vote: During the day, try to identify the Mafia
 6. Win the Game: Achieve your team's victory condition
 
-     Win Conditions
+ Win Conditions
 
 1. Mafia Wins: When Mafia members equal or outnumber Villagers
 2. Villagers Win: When all Mafia members are eliminated
