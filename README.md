@@ -1,99 +1,106 @@
-🕵️ Mafia Mystery
+# 🕵️ Mafia Mystery
 
-A thrilling web-based social deduction game inspired by Wolfville, where players take on secret roles and try to outsmart each other in a battle of wits and deception.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/)
+[![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-orange.svg)](https://developer.mozilla.org/en-US/docs/Web)
 
-🎮 About the Game
+A thrilling web-based social deduction game inspired by Werewolf/Mafia, where players take on secret roles and try to outsmart each other in a battle of wits and deception.
 
-Mafia Mystery is an interactive web game where players are divided into two factions: the Mafia and the Villagers. Each night, the Mafia secretly eliminates a Villager while the Villagers try to uncover and vote out the Mafia during the day. Can you survive the mystery and emerge victorious?
+## 📋 Table of Contents
+- [About the Game](#about-the-game)
+- [Features](#features)
+- [Game Roles](#game-roles)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [How to Play](#how-to-play)
+- [Gameplay Phases](#gameplay-phases)
+- [Screenshots](#screenshots)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-🔍 Features
+## 🎮 About the Game
 
-🕵️ Role-Based Gameplay: Unique roles like Detective, Doctor, and Mafia with special abilities.
+Mafia Mystery is an interactive web game where players are divided into two main factions: the Mafia and the Villagers. In this game of social deduction:
 
-🗳️ Voting System: Discuss and vote to eliminate suspected Mafia members.
+- Each player is secretly assigned a role with unique abilities
+- The game alternates between day and night phases
+- During the night, the Mafia secretly choose a Villager to eliminate
+- During the day, all players discuss and vote to eliminate a suspected Mafia member
+- Special roles can use their abilities to help their team
 
-🌙 Night & Day Cycle: Strategic decision-making during night and social deduction during the day.
+Can you survive the mystery and emerge victorious?
 
-🎨 Interactive UI: Sleek and responsive design built with HTML, CSS, and JavaScript.
+## 🔍 Features
 
-🐍 Python Backend: Manage game logic and real-time communication.
+- **🕵️ Dynamic Role System**: Unique roles with special abilities to create varied gameplay experiences
+- **🗳️ Interactive Voting System**: Real-time discussion and voting to eliminate suspected Mafia members
+- **🌙 Strategic Day/Night Cycle**: Different actions available during each phase
+- **💬 In-game Chat**: Communicate with other players during discussions
+- **👥 Private Team Chat**: Secret communication for Mafia members
+- **🎨 Responsive Design**: Play on desktop or mobile devices
+- **🔒 Secure Room System**: Private game rooms with invite codes
 
-🛠️ Technologies Used
+## 👤 Game Roles
 
-Frontend: HTML, CSS, JavaScript
+| Role | Team | Special Ability |
+|------|------|-----------------|
+| Villager | Village | Votes during the day |
+| Mafia | Mafia | Eliminates one player each night |
+| Detective | Village | Can investigate one player's role each night |
+| Doctor | Village | Can protect one player from elimination each night |
+| Sheriff | Village | Can check if a player is suspicious |
+| Jester | Neutral | Wins if voted out during the day |
 
-Backend: Python (Flask/Django)
+## 🛠️ Technologies Used
 
-📦 Setup Instructions
+**Frontend:**
+- HTML5, CSS3, JavaScript
+- Responsive design with Flexbox/Grid
+- WebSockets for real-time communication
 
-Clone the repository:
+**Backend:**
+- Python 3.7+
+- Flask web framework
+- SQLite/PostgreSQL database
+- Socket.IO for real-time events
 
-git clone https://github.com/yourusername/mafia-mystery.git
-cd mafia-mystery
+## 📦 Setup Instructions
 
-Set up a virtual environment (optional but recommended):
+### Prerequisites
+- Python 3.7 or higher
+- pip package manager
+- Git (optional)
 
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+### Installation
 
-Install dependencies:
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Akshit2004/MafiaGame.git
+   cd mafia-mystery
 
-pip install -r requirements.txt
 
-Run the application:
+   🎯 How to Play
+1. Join a Game: Enter a game room with friends or play with random players
+2. Receive a Role: Each player is secretly assigned a role with unique abilities
+3. Play Through Phases: Alternate between night and day phases
+4. Use Your Abilities: Special roles have actions they can perform
+5. Discuss and Vote: During the day, try to identify the Mafia
+6. Win the Game: Achieve your team's victory condition
 
-python app.py
+     Win Conditions
 
-Open your browser and navigate to:
-
-http://localhost:5000
-
-🚀 How to Play
-
-Join a Game: Enter a game room with friends or play with random players.
-
-Receive a Role: Each player is secretly assigned a role (Mafia, Villager, Detective, etc.).
-
-Night Phase: Mafia secretly eliminates a player while special roles perform actions.
-
-Day Phase: Players discuss and vote to eliminate suspected Mafia members.
-
-Win Conditions:
-
-Mafia Wins: When Mafia outnumber Villagers.
-
-Villagers Win: When all Mafia members are eliminated.
-
-📜 Roadmap
-
+1. Mafia Wins: When Mafia members equal or outnumber Villagers
+2. Villagers Win: When all Mafia members are eliminated
+3. Special Roles: Some roles may have unique win conditions
 
 
 🤝 Contributing
+Contributions are welcome! Here's how you can help:
 
-Contributions are welcome! Feel free to fork the repository, open an issue, or submit a pull request.
-
-📄 License
-
-This project is licensed under the MIT License.
-
-🌟 Acknowledgements
-
-Inspired by Wolfville and classic Mafia party games. Special thanks to all playtesters and contributors!
-
-🎯 Uncover the truth. Deceive your friends. Will you survive
-
-🚀 How to Play
-
-Join a Game: Enter a game room with friends or play with random players.
-
-Receive a Role: Each player is secretly assigned a role (Mafia, Villager, Detective, etc.).
-
-Night Phase: Mafia secretly eliminates a player while special roles perform actions.
-
-Day Phase: Players discuss and vote to eliminate suspected Mafia members.
-
-Win Conditions:
-
-Mafia Wins: When Mafia outnumber Villagers.
-
-Villagers Win: When all Mafia members are eliminated.
+1. Fork the repository
+2. Create a feature branch: git checkout -b new-feature
+3. Commit your changes: git commit -am 'Add new feature'
+4. Push to the branch: git push origin new-feature
+5. Submit a pull request
