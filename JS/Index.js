@@ -135,3 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Add this to your main JavaScript file
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('nav-scrolled');
+    } else {
+        nav.classList.remove('nav-scrolled');
+    }
+});
