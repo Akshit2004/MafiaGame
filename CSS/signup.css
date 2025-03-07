@@ -1,0 +1,115 @@
+:root {
+    --primary-color: #a7222d;
+    --primary-light: #d63447;
+    --secondary-color: #1e1e24;
+    --accent-color: #d4af37;
+    --text-light: #f5f5f5;
+    --bg-dark: #121212;
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-container {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.signup-container input:focus {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.signup-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.signup-container button:hover {
+    background-color: var(--primary-light);
+}
+
+.signup-container p {
+    margin-top: 10px;
+}
+
+.signup-container a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+.password-requirements {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #ff4d4d;
+    display: none; /* Initially hidden */
+}
+
+.valid {
+    color: #32CD32; /* Green */
+}
