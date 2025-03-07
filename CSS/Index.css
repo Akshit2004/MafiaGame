@@ -110,16 +110,25 @@ nav ul li a:hover::after {
 }
 
 .signup-nav-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     color: white;
-    padding: 8px 18px;
-    border-radius: 30px;
+    padding: 8px 20px;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
     margin-left: 10px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(167, 34, 45, 0.4);
+    border: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 0;
 }
 
 .signup-nav-btn:hover {
-    background-color: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     color: white !important;
+    box-shadow: 0 0 15px rgba(167, 34, 45, 0.7);
+    transform: translateY(-2px);
 }
 
 .signup-nav-btn::after {
@@ -229,42 +238,147 @@ header {
 }
 
 .cta-primary, .cta-secondary {
-    padding: 12px 28px;
+    padding: 16px 34px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 5px;
-    transition: var(--transition);
-    letter-spacing: 1px;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: 2px;
     display: inline-block;
+    position: relative;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    overflow: visible;
+    z-index: 5;
+    background-color: transparent;
+}
+
+.cta-primary::before, .cta-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scale(1.02, 1.08);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    filter: blur(10px);
+}
+
+.cta-primary::before {
+    background: var(--primary-color);
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+}
+
+.cta-secondary::before {
+    background: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
 }
 
 .cta-primary {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
     color: var(--text-light);
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 10px rgba(167, 34, 45, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+        0 0 10px rgba(167, 34, 45, 0.5),
+        0 0 20px rgba(167, 34, 45, 0.3);
 }
 
 .cta-secondary {
-    background-color: transparent;
-    color: var(--text-light);
-    border: 2px solid var(--text-light);
+    background: linear-gradient(135deg, rgba(30, 30, 36, 0.9) 0%, rgba(30, 30, 36, 0.8) 100%);
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+    box-shadow: 
+        0 0 0 1px var(--accent-color) inset,
+        0 0 10px rgba(212, 175, 55, 0.3),
+        0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+/* Corner accents for gaming feel */
+.cta-primary::after, .cta-secondary::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.cta-primary::after {
+    right: -2px;
+    bottom: -2px;
+    border-color: var(--primary-light);
+    box-shadow: -4px -4px 8px rgba(167, 34, 45, 0.3);
+    border-top: none;
+    border-left: none;
+}
+
+.cta-secondary::after {
+    left: -2px;
+    top: -2px;
+    border-color: var(--accent-color);
+    box-shadow: 4px 4px 8px rgba(212, 175, 55, 0.3);
+    border-bottom: none;
+    border-right: none;
+}
+
+.cta-primary:hover::after {
+    width: 18px;
+    height: 18px;
+    box-shadow: -6px -6px 12px rgba(167, 34, 45, 0.5);
+}
+
+.cta-secondary:hover::after {
+    width: 18px;
+    height: 18px;
+    box-shadow: 6px 6px 12px rgba(212, 175, 55, 0.5);
+}
+
+/* Animated glow and hover effects */
+.cta-primary:hover, .cta-secondary:hover {
+    transform: translateY(-8px);
+    letter-spacing: 3px;
 }
 
 .cta-primary:hover {
-    background-color: var(--primary-light);
-    border-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(167, 34, 45, 0.5);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+        0 0 15px rgba(167, 34, 45, 0.7),
+        0 0 30px rgba(167, 34, 45, 0.5);
 }
 
 .cta-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-    border-color: var(--primary-light);
-    color: var(--primary-light);
+    background-color: rgba(30, 30, 36, 0.95);
+    box-shadow: 
+        0 0 0 1px var(--accent-color) inset,
+        0 0 15px rgba(212, 175, 55, 0.5),
+        0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.cta-primary:hover::before, .cta-secondary:hover::before {
+    opacity: 0.6;
+    transform: scale(1.1, 1.2);
+}
+
+/* Add subtle pulsing animation */
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.cta-primary, .cta-secondary {
+    animation: buttonPulse 3s infinite;
+}
+
+.cta-primary:hover, .cta-secondary:hover {
+    animation: none;
 }
 
 /* About Section */
@@ -514,16 +628,17 @@ header {
 }
 
 .tab-btn {
-    background-color: transparent;
-    border: none;
+    background-color: rgba(30, 30, 36, 0.7);
+    border: 1px solid rgba(167, 34, 45, 0.3);
     color: var(--text-light);
     padding: 12px 30px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
-    border-bottom: 3px solid transparent;
     font-weight: 600;
     position: relative;
+    margin: 0 5px;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
 }
 
 .tab-btn:hover {
@@ -591,6 +706,240 @@ header {
     font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--primary-color);
+}
+
+/* Enhanced Roles Section Styling */
+.role-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: rgba(30, 30, 36, 0.6);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+    border-right: 3px solid var(--primary-color);
+}
+
+.role-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.role-tag {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.role-tag.power {
+    background-color: rgba(132, 0, 255, 0.2);
+    color: #b388ff;
+    border: 1px solid #9966ff;
+}
+
+.role-tag.investigative {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #90caf9;
+    border: 1px solid #42a5f5;
+}
+
+.role-tag.support {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #a5d6a7;
+    border: 1px solid #66bb6a;
+}
+
+.role-tag.deception {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ffcc80;
+    border: 1px solid #ffa726;
+}
+
+.role-tag.killing {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #ef9a9a;
+    border: 1px solid #ef5350;
+}
+
+.role-count {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.category-title {
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.category-title i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.role-category {
+    margin-bottom: 40px;
+}
+
+.role-card {
+    position: relative;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background-color: rgba(30, 30, 36, 0.95);
+    border-top: 3px solid var(--primary-color);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(167, 34, 45, 0.3);
+}
+
+.mafia-card {
+    border-top-color: #8B0000;
+}
+
+.neutral-card {
+    border-top-color: #9370DB;
+}
+
+.role-difficulty {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.role-icon {
+    margin-bottom: 15px;
+    background: rgba(167, 34, 45, 0.1);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin: 0 auto 20px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.mafia-card .role-icon {
+    background: rgba(139, 0, 0, 0.1);
+    color: #8B0000;
+}
+
+.neutral-card .role-icon {
+    background: rgba(147, 112, 219, 0.1);
+    color: #9370DB;
+}
+
+.role-card:hover .role-icon {
+    transform: scale(1.1) rotateY(360deg);
+}
+
+.role-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+    justify-content: center;
+}
+
+.role-tags .role-tag {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+}
+
+.role-ability {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.mafia-card .role-ability {
+    border-left-color: #8B0000;
+}
+
+.neutral-card .role-ability {
+    border-left-color: #9370DB;
+}
+
+.ability-title {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.win-condition {
+    margin-top: 15px;
+    font-weight: 500;
+    font-style: italic;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+.win-condition i {
+    color: gold;
+    margin-right: 5px;
+}
+
+.warning {
+    color: #ff6b6b;
+}
+
+.special {
+    color: #64ffda;
+}
+
+.mafia-intro {
+    border-color: #8B0000;
+}
+
+.neutral-intro {
+    border-color: #9370DB;
+}
+
+.roles-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(30, 30, 36, 0.6);
+    border-radius: var(--border-radius);
+}
+
+.role-guide-btn {
+    margin-top: 20px;
+    display: inline-block;
 }
 
 /* Testimonials Section */
@@ -806,7 +1155,7 @@ footer::before {
     color: var(--text-light);
     text-decoration: none;
     font-size: 1rem;
-    transition: var(--transition);
+    transition: var (--transition);
     position: relative;
     padding: 5px 0;
 }
