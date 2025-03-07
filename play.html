@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mafia Game - Welcome</title>
+    <link rel="stylesheet" href="CSS/play.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>MAFIA Mystery</h1>
+                <div class="logo-decoration"></div>
+            </div>
+            <div class="profile">
+                <img src="https://via.placeholder.com/40" alt="Profile" id="profilePic">
+                <span id="username">Player123</span>
+                <div class="dropdown">
+                    <i class="fas fa-cog"></i>
+                    <div class="dropdown-content">
+                        <a href="#">Settings</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="welcome-banner">
+                <h2>Welcome back, <span id="playerName">Player</span>!</h2>
+                <p>Ready to deceive or uncover the truth?</p>
+            </section>
+
+            <section class="game-options">
+                <div class="option-card create-game">
+                    <i class="fas fa-plus"></i>
+                    <h3>Create Game</h3>
+                    <p>Start a new game session</p>
+                </div>
+                <div class="option-card join-game">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <h3>Join Game</h3>
+                    <p>Enter a game code to join</p>
+                </div>
+                <div class="option-card quick-play">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick Play</h3>
+                    <p>Join a random game</p>
+                </div>
+                <div class="option-card tutorial">
+                    <i class="fas fa-book"></i>
+                    <h3>Tutorial</h3>
+                    <p>Learn how to play</p>
+                </div>
+            </section>
+
+            <section class="active-games">
+                <h2>Active Game Lobbies</h2>
+                <div class="games-container">
+                    <!-- Game cards will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
+            </div>
+            <p>© 2025 Mafia Game. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="JS/play.js"></script>
+</body>
+</html>
