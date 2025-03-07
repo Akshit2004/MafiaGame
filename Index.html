@@ -15,7 +15,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#gameplay">Gameplay</a></li>
             <li><a href="#roles">Roles</a></li>
-            <li><a href="#" id="login-btn">Login</a></li>
             <li><a href="#" id="signup-btn" class="signup-nav-btn">Sign Up</a></li>
         </ul>
         <div class="menu-toggle">
@@ -26,7 +25,7 @@
     <header id="home">
         <div class="video-background">
             <video autoplay loop muted playsinline poster="images/video-poster.jpg">
-                <source src="assets/1476224_People_1920x1080.mp4" type="video/mp4">
+                <source src="assests/1476224_People_1920x1080.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
@@ -112,74 +111,352 @@
     </section>
 
     <section id="roles" class="roles">
-        <div class="container">
-            <h2>Game Roles</h2>
-            <div class="roles-tabs">
-                <div class="tabs">
-                    <button class="tab-btn active" data-role="town">Town</button>
-                    <button class="tab-btn" data-role="mafia">Mafia</button>
-                    <button class="tab-btn" data-role="neutral">Neutral</button>
+    <div class="container">
+        <h2>Game Roles</h2>
+        
+        <div class="role-category-description">
+            <p>Discover the intricate web of abilities, deception, and strategy in Mafia Mystery. Each role offers a unique gameplay experience with special powers that can change the course of the game.</p>
+        </div>
+        
+        <div class="roles-tabs">
+            <div class="tabs">
+                <button class="tab-btn active" data-role="town">
+                    <i class="fas fa-shield-alt"></i> Town
+                    <span class="role-count">7</span>
+                </button>
+                <button class="tab-btn" data-role="mafia">
+                    <i class="fas fa-skull"></i> Mafia
+                    <span class="role-count">6</span>
+                </button>
+                <button class="tab-btn" data-role="neutral">
+                    <i class="fas fa-balance-scale"></i> Neutral
+                    <span class="role-count">6</span>
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="town-content">
+                <div class="faction-intro">
+                    <div class="faction-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="faction-details">
+                        <h3 class="faction-name">Town</h3>
+                        <p class="faction-description">Work together to identify and eliminate the Mafia. Victory comes when all threats to the town are eliminated.</p>
+                    </div>
                 </div>
-                <div class="tab-content active" id="town-content">
-                    <div class="role-cards">
-                        <div class="role-card">
+                
+                <div class="role-cards">
+                    <div class="role-card featured">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-shield-alt"></i></div>
-                            <h3>Sheriff</h3>
-                            <p>Investigates one player each night to determine if they're suspicious.</p>
+                            <div class="role-badges">
+                                <span class="role-badge investigative">Investigative</span>
+                                <span class="role-difficulty">⭐⭐</span>
+                            </div>
                         </div>
-                        <div class="role-card">
+                        <h3>Sheriff</h3>
+                        <p class="role-description">Investigates one player each night to determine if they're suspicious.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Select a player to learn if they are suspicious (Mafia, Serial Killer) or innocent.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-medkit"></i></div>
-                            <h3>Doctor</h3>
-                            <p>Protects one player from being eliminated each night.</p>
+                            <div class="role-badges">
+                                <span class="role-badge protective">Protective</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
                         </div>
-                        <div class="role-card">
+                        <h3>Doctor</h3>
+                        <p class="role-description">Protects one player from being eliminated each night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Select a player to protect from a single attack that night.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-gun"></i></div>
-                            <h3>Vigilante</h3>
-                            <p>Has the ability to eliminate one player during the game.</p>
+                            <div class="role-badges">
+                                <span class="role-badge killing">Killing</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Vigilante</h3>
+                        <p class="role-description">Has the ability to eliminate one player during the game.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Choose to shoot a player. Limited to 3 bullets.
                         </div>
                     </div>
-                </div>
-                <div class="tab-content" id="mafia-content">
-                    <div class="role-cards">
-                        <div class="role-card">
+                    
+                    <div class="role-card">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-crown"></i></div>
-                            <h3>Godfather</h3>
-                            <p>Leads the Mafia and appears innocent to investigations.</p>
+                            <div class="role-badges">
+                                <span class="role-badge support">Support</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
                         </div>
-                        <div class="role-card">
-                            <div class="role-icon"><i class="fas fa-mask"></i></div>
-                            <h3>Framer</h3>
-                            <p>Makes innocent players appear suspicious to investigations.</p>
+                        <h3>Mayor</h3>
+                        <p class="role-description">Can reveal themselves to gain additional voting power.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Day Ability:</span> Reveal role to gain 3x voting power for the rest of the game.
                         </div>
-                        <div class="role-card">
-                            <div class="role-icon"><i class="fas fa-user-secret"></i></div>
-                            <h3>Consigliere</h3>
-                            <p>Can learn the exact role of one player each night.</p>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-search"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge investigative">Investigative</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Investigator</h3>
+                        <p class="role-description">Gathers clues about a player's possible roles.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Investigate a player to get a list of possible roles they might be.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-ghost"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge support">Support</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Medium</h3>
+                        <p class="role-description">Communicates with eliminated players at night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Speak with dead players to gather information.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-eye"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge investigative">Investigative</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Lookout</h3>
+                        <p class="role-description">Watches who visits a player during the night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> See who visits your target during the night.
                         </div>
                     </div>
                 </div>
-                <div class="tab-content" id="neutral-content">
-                    <div class="role-cards">
-                        <div class="role-card">
+            </div>
+            
+            <div class="tab-content" id="mafia-content">
+                <div class="faction-intro">
+                    <div class="faction-icon"><i class="fas fa-skull"></i></div>
+                    <div class="faction-details">
+                        <h3 class="faction-name">Mafia</h3>
+                        <p class="faction-description">Work together to eliminate the Town while maintaining your cover. You know your fellow Mafia members and can communicate secretly at night.</p>
+                    </div>
+                </div>
+                
+                <div class="role-cards">
+                    <div class="role-card featured">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-crown"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge mafia-leader">Leader</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Godfather</h3>
+                        <p class="role-description">Leads the Mafia and appears innocent to investigations.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Order kills and appears innocent to Sheriff investigations.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-mask"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge deception">Deception</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Framer</h3>
+                        <p class="role-description">Makes innocent players appear suspicious to investigations.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Frame a player to appear suspicious to Sheriff investigations.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-user-secret"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge investigative">Investigative</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Consigliere</h3>
+                        <p class="role-description">Can learn the exact role of one player each night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Investigate one player to learn their exact role.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-gun"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge killing">Killing</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Mafioso</h3>
+                        <p class="role-description">Carries out the Godfather's orders.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Kill targets as directed by the Godfather.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-comment-slash"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge disruptive">Disruptive</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Blackmailer</h3>
+                        <p class="role-description">Silences a player for the next day.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Blackmail a player, preventing them from talking the next day.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-broom"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge deception">Deception</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Janitor</h3>
+                        <p class="role-description">Cleans up crime scenes to hide information.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Clean a dead body to hide the role from being revealed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="neutral-content">
+                <div class="faction-intro">
+                    <div class="faction-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="faction-details">
+                        <h3 class="faction-name">Neutral</h3>
+                        <p class="faction-description">Play for yourself with unique win conditions that aren't aligned with either Town or Mafia. Each neutral role follows their own path to victory.</p>
+                    </div>
+                </div>
+                
+                <div class="role-cards">
+                    <div class="role-card featured">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-theater-masks"></i></div>
-                            <h3>Jester</h3>
-                            <p>Wins if they get voted out by the town.</p>
+                            <div class="role-badges">
+                                <span class="role-badge chaos">Chaos</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
                         </div>
-                        <div class="role-card">
+                        <h3>Jester</h3>
+                        <p class="role-description">Wins if they get voted out by the town.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Win Condition:</span> Get yourself lynched by the town vote.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
                             <div class="role-icon"><i class="fas fa-gavel"></i></div>
-                            <h3>Executioner</h3>
-                            <p>Wins if their target gets eliminated by the town.</p>
+                            <div class="role-badges">
+                                <span class="role-badge manipulation">Manipulation</span>
+                                <span class="role-difficulty">⭐⭐⭐</span>
+                            </div>
                         </div>
-                        <div class="role-card">
-                            <div class="role-icon"><i class="fas fa-skull"></i></div>
-                            <h3>Serial Killer</h3>
-                            <p>Works alone, can eliminate one player each night, and wins by being the last one standing.</p>
+                        <h3>Executioner</h3>
+                        <p class="role-description">Wins if their target gets eliminated by the town.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Win Condition:</span> Get your target lynched by town vote.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-skull-crossbones"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge killing">Killing</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Serial Killer</h3>
+                        <p class="role-description">Works alone, can eliminate one player each night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Kill one player each night. Win by eliminating everyone.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div the="role-icon"><i class="fas fa-fire"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge killing">Killing</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Arsonist</h3>
+                        <p class="role-description">Douses players and ignites them all at once.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Douse players with gasoline or ignite all doused targets.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-hat-wizard"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge control">Control</span>
+                                <span class="role-difficulty">⭐⭐⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Witch</h3>
+                        <p class="role-description">Controls other players' actions at night.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Force a player to use their ability on another player of your choice.
+                        </div>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-icon"><i class="fas fa-user-shield"></i></div>
+                            <div class="role-badges">
+                                <span class="role-badge survival">Survival</span>
+                                <span class="role-difficulty">⭐⭐</span>
+                            </div>
+                        </div>
+                        <h3>Survivor</h3>
+                        <p class="role-description">Just wants to survive until the end.</p>
+                        <div class="role-ability">
+                            <span class="ability-title">Night Ability:</span> Use a bulletproof vest to protect yourself (limited uses).
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -247,58 +524,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Login</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" required>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="btn-submit">Login</button>
-                    <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal" id="signup-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Create Account</h2>
-            <form id="signup-form">
-                <div class="form-group">
-                    <label for="signup-username">Username</label>
-                    <input type="text" id="signup-username" required>
-                </div>
-                <div class="form-group">
-                    <label for="signup-email">Email</label>
-                    <input type="email" id="signup-email" required>
-                </div>
-                <div class="form-group">
-                    <label for="signup-password">Password</label>
-                    <input type="password" id="signup-password" required>
-                </div>
-                <div class="form-group">
-                    <label for="signup-confirm">Confirm Password</label>
-                    <input type="password" id="signup-confirm" required>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="btn-submit">Sign Up</button>
-                    <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="JS/Index.js"></script>
 </body>
