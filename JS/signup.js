@@ -26,19 +26,6 @@ function checkPassword() {
     document.getElementById("special").innerHTML = /[@$!%*?&]/.test(password) ? "🟢 At least one special character" : "🔴 At least one special character";
 }
 
-function validateForm() {
-    const password = document.getElementById("password").value;
-
-    // Password validation regex
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-
-    if (!passwordPattern.test(password)) {
-        alert("Password does not meet the requirements!");
-        return false;
-    }
-    return true;
-}
-
 function togglePassword() {
     const passwordInput = document.getElementById("password");
     const toggleIcon = document.querySelector(".password-toggle");
@@ -50,4 +37,28 @@ function togglePassword() {
         passwordInput.type = "password";
         toggleIcon.textContent = "👁"; // Change back to show icon
     }
+}
+
+function validateForm() {
+    const password = document.getElementById("password").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // Password validation regex
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+    if (!passwordPattern.test(password)) {
+        alert("Password does not meet the requirements!");
+        return false;
+    }
+
+    // Store user data (for demo purposes, this is only stored in local storage)
+    localStorage.setItem("signupName", name);
+    localStorage.setItem("signupEmail", email);
+    localStorage.setItem("signupPassword", password);
+
+    alert("Signup successful! Redirecting to Login...");
+    window.location.href = "signin.html"; // Redirect to Sign-In page
+
+    return false; // Prevent form submission (no backend)
 }
