@@ -3,76 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mafia Game - Welcome</title>
+    <title>Mafia - The Game of Deception</title>
     <link rel="stylesheet" href="CSS/play.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <h1>MAFIA</h1>
-                <div class="logo-decoration"></div>
+    <!-- Video Background with Parallax -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="assests/1476224_People_1920x1080.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <div class="loading-screen">
+        <div class="spinner"></div>
+        <p>Setting up the game...</p>
+    </div>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-chess-king"></i>
+            <h1>MAFIA</h1>
+        </div>
+        <div class="theme-toggle" role="button" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="user-info">
+            <img src="https://i.imgur.com/8Km9tLL.jpg" alt="User Avatar">
+            <span>Detective</span>
+            <i class="fas fa-caret-down"></i>
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="#"><i class="fas fa-history"></i> Game History</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
-            <div class="profile">
-                <img src="https://via.placeholder.com/40" alt="Profile" id="profilePic">
-                <span id="username">Player123</span>
-                <div class="dropdown">
-                    <i class="fas fa-cog"></i>
-                    <div class="dropdown-content">
-                        <a href="#">Settings</a>
-                        <a href="#">Profile</a>
-                        <a href="#">Log Out</a>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <i class="fas fa-users"></i>
+            <div class="stat-data">
+                <span class="stat-number">1,248</span>
+                <span class="stat-label">Players Online</span>
+            </div>
+        </div>
+        <div class="stat">
+            <i class="fas fa-gamepad"></i>
+            <div class="stat-data">
+                <span class="stat-number">84</span>
+                <span class="stat-label">Active Games</span>
+            </div>
+        </div>
+        <div class="stat">
+            <i class="fas fa-trophy"></i>
+            <div class="stat-data">
+                <span class="stat-number">12,356</span>
+                <span class="stat-label">Games Played Today</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote-container">
+        <blockquote>
+            "In the game of deception, trust no one, not even yourself."
+        </blockquote>
+        <cite>— The Godfather</cite>
+    </div>
+
+    <main>
+        <div class="announcements">
+            <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+            <div class="announcement-carousel">
+                <div class="announcement active">
+                    <h4>New Role: The Vigilante</h4>
+                    <p>Take justice into your own hands with our newest role!</p>
+                </div>
+                <div class="announcement">
+                    <h4>Weekend XP Boost</h4>
+                    <p>Earn double XP in all games this weekend.</p>
+                </div>
+                <div class="announcement">
+                    <h4>Tournament: May 15th</h4>
+                    <p>Register now for our monthly tournament.</p>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-panel">
+            <section class="play-options">
+                <div class="option" id="create">
+                    <div class="option-icon">
+                        <i class="fas fa-plus"></i>
                     </div>
-                </div>
-            </div>
-        </header>
-
-        <main>
-            <section class="welcome-banner">
-                <h2>Welcome back, <span id="playerName">Player</span>!</h2>
-                <p>Ready to deceive or uncover the truth?</p>
-            </section>
-
-            <section class="game-options">
-                <div class="option-card create-game">
-                    <i class="fas fa-plus"></i>
                     <h3>Create Game</h3>
-                    <p>Start a new game session</p>
+                    <p>Start a new game as host</p>
+                    <button class="option-btn">Create</button>
                 </div>
-                <div class="option-card join-game">
-                    <i class="fas fa-sign-in-alt"></i>
+                <div class="option" id="join">
+                    <div class="option-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
                     <h3>Join Game</h3>
                     <p>Enter a game code to join</p>
+                    <button class="option-btn">Join</button>
                 </div>
-                <div class="option-card quick-play">
-                    <i class="fas fa-bolt"></i>
+                <div class="option" id="quick">
+                    <div class="option-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <h3>Quick Play</h3>
-                    <p>Join a random game</p>
-                </div>
-                <div class="option-card tutorial">
-                    <i class="fas fa-book"></i>
-                    <h3>Tutorial</h3>
-                    <p>Learn how to play</p>
+                    <p>Join a random game instantly</p>
+                    <button class="option-btn pulse">Play Now</button>
                 </div>
             </section>
+        </div>
 
-            <section class="active-games">
-                <h2>Active Game Lobbies</h2>
-                <div class="games-container">
-                    <!-- Game cards will be populated by JavaScript -->
+        <div class="role-showcase">
+            <h3>Game Roles</h3>
+            <div class="roles-carousel">
+                <div class="role-card">
+                    <div class="role-img">
+                        <img src="https://i.imgur.com/9EcAShf.png" alt="Mafia Boss">
+                    </div>
+                    <h4>Mafia Boss</h4>
+                    <p>Leader of the mafia. Decides who to eliminate each night.</p>
                 </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-reddit"></i></a>
+                <div class="role-card">
+                    <div class="role-img">
+                        <img src="https://i.imgur.com/XyPtn4u.png" alt="Detective">
+                    </div>
+                    <h4>Detective</h4>
+                    <p>Can investigate one player each night to reveal their role.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-img">
+                        <img src="https://i.imgur.com/jvOUxt2.png" alt="Doctor">
+                    </div>
+                    <h4>Doctor</h4>
+                    <p>Can protect one player each night from being eliminated.</p>
+                </div>
+                <div class="role-arrows">
+                    <button class="arrow prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="arrow next"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
-            <p>© 2025 Mafia Game. All rights reserved.</p>
-        </footer>
+        </div>
+
+        <div class="quick-tutorial">
+            <h3>How to Play</h3>
+            <div class="tutorial-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Join a Game</h4>
+                    <p>Create or join an existing game room</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Get Your Role</h4>
+                    <p>You'll be secretly assigned a role</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Survive & Deceive</h4>
+                    <p>Work with your team to win the game</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Vote Wisely</h4>
+                    <p>Eliminate suspects during the day</p>
+                </div>
+            </div>
+            <button class="learn-more-btn">Full Tutorial <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="menu">
+            <div class="menu-item active"><i class="fas fa-home"></i> <span>Home</span></div>
+            <div class="menu-item"><i class="fas fa-users"></i> <span>Friends</span></div>
+            <div class="menu-item"><i class="fas fa-trophy"></i> <span>Leaderboard</span></div>
+            <div class="menu-item"><i class="fas fa-cog"></i> <span>Settings</span></div>
+        </div>
+    </footer>
+
+    <div class="modal" id="join-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Join Game</h3>
+            <input type="text" placeholder="Enter game code" class="game-code">
+            <button class="modal-btn">Join</button>
+        </div>
     </div>
 
     <script src="JS/play.js"></script>
