@@ -123,26 +123,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Footer menu navigation
+    // Footer menu navigation - Enhance with actual navigation
     const menuItems = document.querySelectorAll('.menu-item');
+    const pageSections = document.querySelectorAll('.page-section');
+    
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
+            // Remove active class from all menu items and add to clicked item
             menuItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
             
-            // Add navigation logic
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-users')) {
-                console.log('Navigate to Friends');
-            } else if (icon.classList.contains('fa-trophy')) {
-                console.log('Navigate to Achievements');
-            } else if (icon.classList.contains('fa-cog')) {
-                console.log('Navigate to Settings');
-            } else if (icon.classList.contains('fa-home')) {
-                console.log('Navigate to Home');
+            // Get the section to navigate to
+            const sectionId = this.getAttribute('data-section');
+            const targetSection = document.getElementById(sectionId);
+            
+            // Hide all sections and show the target one with animation
+            pageSections.forEach(section => {
+                section.classList.remove('active');
+                section.classList.remove('slide-in');
+            });
+            
+            // Show target section with animation
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.classList.add('active');
+                    targetSection.classList.add('slide-in');
+                }, 100);
+                
+                // Update page title based on section
+                updatePageTitle(sectionId);
             }
         });
     });
+    
+    // Helper function to update page title
+    function updatePageTitle(sectionId) {
+        const baseName = 'Mafia - ';
+        let sectionName = 'Home';
+        
+        switch(sectionId) {
+            case 'friends-section':
+                sectionName = 'Friends';
+                break;
+            case 'leaderboard-section':
+                sectionName = 'Leaderboard';
+                break;
+            case 'settings-section':
+                sectionName = 'Settings';
+                break;
+            default:
+                sectionName = 'Home';
+        }
+        
+        document.title = baseName + sectionName;
+    }
     
     // Apply animations to games list
     const games = document.querySelectorAll('.game');
@@ -235,5 +269,172 @@ document.addEventListener('DOMContentLoaded', () => {
             const offset = currentRoleIndex * -100;
             document.querySelector('.roles-carousel').style.transform = `translateX(${offset}%)`;
         }
+    }
+    
+    // Settings tab navigation
+    const settingNavItems = document.querySelectorAll('.setting-nav-item');
+    const settingsTabs = document.querySelectorAll('.settings-tab');
+    
+    settingNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Get the tab to show
+            const tabId = this.getAttribute('data-tab');
+            const targetTab = document.getElementById(tabId + '-tab');
+            
+            // Update active states
+            settingNavItems.forEach(navItem => navItem.classList.remove('active'));
+            settingsTabs.forEach(tab => tab.classList.remove('active'));
+            
+            this.classList.add('active');
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        });
+    });
+    
+    // Friends list filter tabs functionality
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const friendCards = document.querySelectorAll('.friend-card');
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active filter tab
+            filterTabs.forEach(filterTab => filterTab.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter the friends list
+            friendCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'flex';
+                } else if (filter === 'online' && card.classList.contains('online')) {
+                    card.style.display = 'flex';
+                } else if (filter === 'requests' && card.classList.contains('request')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Theme selector in settings
+    const themeSelect = document.querySelector('#preferences-tab select');
+    if (themeSelect) {
+        // Set initial value based on current theme
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        themeSelect.value = currentTheme;
+        
+        // Listen for changes
+        themeSelect.addEventListener('change', function() {
+            const selectedTheme = this.value;
+            
+            if (selectedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            } else {
+                document.body.classList.remove('light-theme');
+                document.querySelector('.theme-toggle i').classList.replace('fa-sun', 'fa-moon');
+            }
+            
+            // Save preference
+            localStorage.setItem('theme', selectedTheme);
+        });
+    }
+    
+    // User dropdown toggle
+    const userInfo = document.querySelector('.user-info');
+    const userDropdown = document.querySelector('.user-dropdown');
+    
+    if (userInfo && userDropdown) {
+        userInfo.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('visible');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            userDropdown.classList.remove('visible');
+        });
+    }
+    
+    // Add animation to stats numbers - count up effect
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const targetValue = parseInt(stat.textContent);
+        animateCountUp(stat, targetValue);
+    });
+    
+    function animateCountUp(element, target) {
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const increment = Math.ceil(target / (duration / 16)); // 60fps
+        
+        const timer = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(count).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    // Handle form submissions in settings
+    const settingsForms = document.querySelectorAll('.settings-tab form');
+    
+    settingsForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show saving indicator
+            const saveBtn = this.querySelector('button[type="submit"]');
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = 'Saving...';
+            saveBtn.disabled = true;
+            
+            // Simulate API call with timeout
+            setTimeout(() => {
+                saveBtn.textContent = 'Saved!';
+                
+                // Reset button after a delay
+                setTimeout(() => {
+                    saveBtn.textContent = originalText;
+                    saveBtn.disabled = false;
+                }, 1500);
+            }, 1000);
+        });
+    });
+    
+    // Notification badge update
+    function updateNotificationBadge(count) {
+        const badge = document.querySelector('.notification-badge');
+        if (badge) {
+            if (count > 0) {
+                badge.textContent = count;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+    }
+    
+    // Initialize with some notifications
+    updateNotificationBadge(2);
+    
+    // Add parallax effect to background video
+    if (!navigator.userAgent.match(/Android|iPhone|iPad|iPod/i)) { // Skip on mobile
+        document.addEventListener('mousemove', function(e) {
+            const videoBackground = document.querySelector('.video-background');
+            if (videoBackground) {
+                const x = (e.clientX - window.innerWidth / 2) / 50;
+                const y = (e.clientY - window.innerHeight / 2) / 50;
+                
+                videoBackground.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            }
+        });
     }
 });
