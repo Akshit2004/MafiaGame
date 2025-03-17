@@ -205,6 +205,36 @@ button {
     transition: transform 0.5s ease;
 }
 
+/* XP Bar */
+.xp-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.xp-bar {
+    width: 150px;
+    height: 20px;
+    background-color: var(--surface-variant);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.xp-bar-fill {
+    height: 100%;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.xp-text {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
 /* Header */
 header {
     padding: 15px 20px;
@@ -2455,4 +2485,153 @@ input:checked + .slider:before {
 
 .learn-more-btn:hover i {
     transform: translateX(5px);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--surface-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    color: var(--accent);
+    transition: transform 0.5s ease;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    padding: 6px 12px;
+    border-radius: 30px;
+    background-color: var(--surface-variant);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.user-info:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-info img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.user-info i {
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.user-info:hover i {
+    transform: rotate(180deg);
+}
+
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 20;
+}
+
+.user-info:hover .user-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+}
+
+.user-dropdown a i {
+    font-size: 16px;
+    color: var(--accent);
+}
+
+.user-dropdown a:hover {
+    background-color: var(--surface-variant);
+}
+
+/* XP Bar */
+.xp-bar-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.xp-bar {
+    width: 200px;
+    height: 20px;
+    background-color: var(--surface-variant);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.xp-bar-fill {
+    height: 100%;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.xp-text {
+    font-size: 14px;
+    color: var(--text-primary);
 }

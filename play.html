@@ -16,6 +16,12 @@
             Your browser does not support the video tag.
         </video>
         <div class="overlay"></div>
+        <div class="xp-bar-container">
+            <div class="xp-bar">
+                <div class="xp-bar-fill" style="width: 50%;"></div>
+            </div>
+            <span class="xp-text">XP: 500 / 1000</span>
+        </div>
     </div>
 
     <div class="loading-screen">
@@ -28,41 +34,43 @@
             <i class="fas fa-chess-king"></i>
             <h1>MAFIA</h1>
         </div>
-        <div class="theme-toggle" role="button" aria-label="Toggle dark/light theme">
-            <i class="fas fa-moon"></i>
-        </div>
-        <div class="user-info">
-            <img src="https://i.imgur.com/8Km9tLL.jpg" alt="User Avatar">
-            <span>Detective</span>
-            <i class="fas fa-caret-down"></i>
-            <div class="user-dropdown">
-                <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
-                <a href="#"><i class="fas fa-history"></i> Game History</a>
-                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <div class="header-right">
+            <div class="theme-toggle" role="button" aria-label="Toggle dark/light theme">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="user-info">
+                <img src="https://i.imgur.com/8Km9tLL.jpg" alt="User Avatar">
+                <span>Detective</span>
+                <i class="fas fa-caret-down"></i>
+                <div class="user-dropdown">
+                    <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                    <a href="#"><i class="fas fa-history"></i> Game History</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="stats-bar">
+    <div class="stats-bar" id="stats-bar">
         <div class="stat">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-medal"></i>
             <div class="stat-data">
-                <span class="stat-number">1,248</span>
-                <span class="stat-label">Players Online</span>
-            </div>
-        </div>
-        <div class="stat">
-            <i class="fas fa-gamepad"></i>
-            <div class="stat-data">
-                <span class="stat-number">84</span>
-                <span class="stat-label">Active Games</span>
+                <span class="stat-number">127</span>
+                <span class="stat-label">Your Rank</span>
             </div>
         </div>
         <div class="stat">
             <i class="fas fa-trophy"></i>
             <div class="stat-data">
-                <span class="stat-number">12,356</span>
-                <span class="stat-label">Games Played Today</span>
+                <span class="stat-number">32</span>
+                <span class="stat-label">Your Wins</span>
+            </div>
+        </div>
+        <div class="stat">
+            <i class="fas fa-star"></i>
+            <div class="stat-data">
+                <span class="stat-number">1850</span>
+                <span class="stat-label">Rating Points</span>
             </div>
         </div>
     </div>

@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Footer menu navigation - Enhance with actual navigation
     const menuItems = document.querySelectorAll('.menu-item');
     const pageSections = document.querySelectorAll('.page-section');
+    const statsBar = document.getElementById('stats-bar');
     
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -152,6 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Update page title based on section
                 updatePageTitle(sectionId);
+                
+                // Show/hide stats bar based on section
+                if (sectionId === 'home-section') {
+                    statsBar.style.display = 'flex';
+                } else {
+                    statsBar.style.display = 'none';
+                }
             }
         });
     });
@@ -364,12 +372,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     statNumbers.forEach(stat => {
         const targetValue = parseInt(stat.textContent);
-        animateCountUp(stat, targetValue);
+        
+        // Use different animation speeds based on stat type
+        let duration = 2000; // Default 2 seconds
+        
+        // Customize animation based on the stat label
+        const statLabel = stat.nextElementSibling.textContent.toLowerCase();
+        if (statLabel.includes('rank')) {
+            duration = 1500; // Faster for ranks
+        } else if (statLabel.includes('rating')) {
+            duration = 2500; // Slower for rating points
+        }
+        
+        animateCountUp(stat, targetValue, duration);
     });
     
-    function animateCountUp(element, target) {
+    function animateCountUp(element, target, duration) {
         let count = 0;
-        const duration = 2000; // 2 seconds
         const increment = Math.ceil(target / (duration / 16)); // 60fps
         
         const timer = setInterval(() => {
@@ -437,4 +456,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Function to update XP bar
+    function updateXPBar(currentXP, nextLevelXP) {
+        const xpBarFill = document.querySelector('.xp-bar-fill');
+        const xpText = document.querySelector('.xp-text');
+        
+        const percentage = (currentXP / nextLevelXP) * 100;
+        xpBarFill.style.width = `${percentage}%`;
+        xpText.textContent = `XP: ${currentXP} / ${nextLevelXP}`;
+    }
+
+    // Example usage
+    const currentXP = 500;
+    const nextLevelXP = 1000;
+    updateXPBar(currentXP, nextLevelXP);
 });
