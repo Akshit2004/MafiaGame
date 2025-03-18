@@ -194,17 +194,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800 + (index * 100));
     });
     
-    // Add hover effects for options
-    const options = document.querySelectorAll('.option');
-    options.forEach(option => {
-        option.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
+    // Consolidate hover effects for all elements
+    const addHoverEffect = (elements, enterEffect, leaveEffect) => {
+        elements.forEach(element => {
+            element.addEventListener('mouseenter', enterEffect);
+            element.addEventListener('mouseleave', leaveEffect);
         });
-        
-        option.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    };
+    
+    // Use the consolidated function for options
+    addHoverEffect(
+        document.querySelectorAll('.option'), 
+        function() { this.style.transform = 'translateY(-5px)'; },
+        function() { this.style.transform = 'translateY(0)'; }
+    );
 
     // Check if video fails to load and provide fallback
     video.addEventListener('error', () => {
@@ -461,10 +464,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateXPBar(currentXP, nextLevelXP) {
         const xpBarFill = document.querySelector('.xp-bar-fill');
         const xpText = document.querySelector('.xp-text');
+        const dropdownXpFill = document.querySelector('.dropdown-xp-fill');
+        const dropdownXpText = document.querySelector('.dropdown-xp-text');
         
         const percentage = (currentXP / nextLevelXP) * 100;
-        xpBarFill.style.width = `${percentage}%`;
-        xpText.textContent = `XP: ${currentXP} / ${nextLevelXP}`;
+        
+        // Update main XP bar
+        if (xpBarFill) xpBarFill.style.width = `${percentage}%`;
+        if (xpText) xpText.textContent = `XP: ${currentXP} / ${nextLevelXP}`;
+        
+        // Update dropdown XP bar
+        if (dropdownXpFill) dropdownXpFill.style.width = `${percentage}%`;
+        if (dropdownXpText) dropdownXpText.textContent = `${currentXP}/${nextLevelXP} XP`;
     }
 
     // Example usage
