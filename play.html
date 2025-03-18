@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title -->
     <title>Mafia - The Game of Deception</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="CSS/play.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Video Background with Parallax -->
+    <!-- Background Video Component -->
     <div class="video-background">
         <video autoplay muted loop id="bgVideo">
             <source src="assests/1476224_People_1920x1080.mp4" type="video/mp4">
@@ -18,11 +23,13 @@
         <div class="overlay"></div>
     </div>
 
+    <!-- Loading Screen -->
     <div class="loading-screen">
         <div class="spinner"></div>
         <p>Setting up the game...</p>
     </div>
 
+    <!-- Header Section -->
     <header>
         <div class="logo">
             <i class="fas fa-chess-king"></i>
@@ -57,6 +64,7 @@
         </div>
     </header>
     
+    <!-- XP Bar Component -->
     <div class="xp-bar-container">
         <div class="xp-bar">
             <div class="xp-bar-fill" style="width: 50%;"></div>
@@ -64,6 +72,7 @@
         <span class="xp-text">XP: 500 / 1000</span>
     </div>
 
+    <!-- Stats Bar -->
     <div class="stats-bar" id="stats-bar">
         <div class="stat">
             <i class="fas fa-medal"></i>
@@ -88,8 +97,11 @@
         </div>
     </div>
 
+    <!-- Main Content -->
     <main>
+        <!-- Home Section -->
         <div class="page-section active" id="home-section">
+            <!-- Announcements Component -->
             <div class="announcements">
                 <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
                 <div class="announcement-carousel">
@@ -113,7 +125,9 @@
                 </div>
             </div>
 
+            <!-- Action Panel -->
             <div class="action-panel">
+                <!-- Quote Component -->
                 <div class="quote-container">
                     <blockquote>
                         "In the game of deception, trust no one, not even yourself."
@@ -121,6 +135,7 @@
                     <cite>— The Godfather</cite>
                 </div>
                 
+                <!-- Play Options -->
                 <section class="play-options">
                     <div class="option" id="create">
                         <div class="option-icon">
@@ -149,6 +164,7 @@
                 </section>
             </div>
 
+            <!-- Role Showcase -->
             <div class="role-showcase">
                 <h3>Game Roles</h3>
                 <div class="roles-carousel">
@@ -180,6 +196,7 @@
                 </div>
             </div>
 
+            <!-- Tutorial Section -->
             <div class="quick-tutorial">
                 <h3>How to Play</h3>
                 <div class="tutorial-steps">
@@ -639,6 +656,7 @@
         </div>
     </main>
 
+    <!-- Footer Navigation -->
     <footer>
         <div class="menu">
             <div class="menu-item active" data-section="home-section"><i class="fas fa-home"></i> <span>Home</span></div>
@@ -648,6 +666,7 @@
         </div>
     </footer>
 
+    <!-- Modals -->
     <div class="modal" id="join-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -657,6 +676,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="JS/play.js"></script>
 </body>
 </html>
