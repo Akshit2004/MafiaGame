@@ -83,6 +83,7 @@ body {
     font-weight: 600;
     transition: var(--transition);
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .signup-container button:hover {
@@ -108,8 +109,13 @@ body {
     margin-top: 10px;
     color: #ff4d4d;
     display: none; /* Initially hidden */
+    margin-bottom: 10px;
 }
 
 .valid {
     color: #32CD32; /* Green */
+}
+
+p{
+    margin-bottom: 10px;
 }
