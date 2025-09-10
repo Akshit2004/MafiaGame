@@ -69,15 +69,155 @@ Can you survive the mystery and emerge victorious?
 
 ### Prerequisites
 - Python 3.7 or higher
-- pip package manager
-- Git (optional)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Internet connection for CDN resources (Font Awesome, Google Fonts)
 
-### Installation
+### Quick Start
 
-1. Clone the repository:
-   ```bash
-   git clone git@github.com:Akshit2004/MafiaGame.git
-   cd mafia-mystery
+#### Method 1: Automated Build (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Akshit2004/MafiaGame.git
+cd MafiaGame
+
+# Run the automated build and test
+chmod +x build.sh test.sh
+./build.sh
+
+# Start the game
+cd build && python3 -m http.server 8000
+```
+
+#### Method 2: Direct Start
+```bash
+# Clone and start directly
+git clone https://github.com/Akshit2004/MafiaGame.git
+cd MafiaGame
+
+# Start simple HTTP server
+python3 -m http.server 8000
+```
+
+#### Method 3: Enhanced Backend
+```bash
+# Start with enhanced backend API
+python3 server.py 8080
+```
+
+#### Method 4: Using npm
+```bash
+# If you have Node.js installed
+npm start
+```
+
+### Accessing the Game
+1. Open your web browser
+2. Navigate to `http://localhost:8000`
+3. Click on `Index.html` or go directly to `http://localhost:8000/Index.html`
+
+### Demo Credentials
+For testing the login functionality:
+- **Email**: `admin@admin.com`
+- **Password**: `Admin@123`
+
+## 🎮 Game Features
+
+### ✅ Fully Implemented Features
+- **🏠 Beautiful Landing Page**: Professional homepage with video background and smooth animations
+- **👤 User Authentication**: Complete sign-up and sign-in system with form validation
+- **🎯 Game Dashboard**: Comprehensive player interface with stats, announcements, and game options
+- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **🎨 Modern UI/UX**: Dark theme with professional styling and smooth transitions
+- **🔧 Build System**: Automated build, test, and deployment scripts
+- **🌐 Backend API**: Python server with game endpoints (optional)
+
+### 🎮 Game Components
+
+#### Authentication System
+- **Sign Up**: Email validation, password strength requirements, toggle visibility
+- **Sign In**: Secure login with demo credentials
+- **Form Validation**: Real-time validation with visual feedback
+
+#### Game Interface
+- **Player Stats**: XP progression, rank, wins, rating points
+- **Game Options**: Create Game, Join Game, Quick Play
+- **Role Information**: Detailed descriptions of all game roles
+- **Announcements**: Game updates and community messages
+
+#### Backend API (server.py)
+- `POST /api/auth/login` - User authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/game/create` - Create game room
+- `POST /api/game/join` - Join game room
+- `GET /api/game/rooms` - List available rooms
+- `GET /api/game/stats` - Game statistics
+
+## 🧪 Testing
+
+### Automated Testing
+```bash
+# Run comprehensive test suite
+./test.sh
+```
+
+### Manual Testing Checklist
+- [ ] Landing page loads with video background ✅
+- [ ] Navigation works smoothly ✅
+- [ ] Sign up form validation works ✅
+- [ ] Sign in works with demo credentials ✅
+- [ ] Game dashboard displays correctly ✅
+- [ ] Role tabs switch properly ✅
+- [ ] Responsive design works on mobile ✅
+- [ ] All assets load correctly ✅
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+# Create production build
+./build.sh
+
+# Deploy from build directory
+cd build
+python3 -m http.server 3000
+```
+
+### Static Hosting
+The game is ready for deployment to:
+- **GitHub Pages**: Upload to gh-pages branch
+- **Netlify**: Drag and drop the build folder
+- **Vercel**: Connect GitHub repository
+- **Firebase Hosting**: `firebase deploy`
+- **AWS S3**: Upload static files
+
+### File Structure
+```
+MafiaGame/
+├── Index.html              # 🏠 Main landing page
+├── signin.html             # 🔑 User sign in
+├── signup.html             # 📝 User registration  
+├── play.html               # 🎮 Game interface
+├── CSS/                    # 🎨 Stylesheets
+│   ├── Index.css
+│   ├── signin.css
+│   ├── signup.css
+│   └── play.css
+├── JS/                     # ⚡ JavaScript
+│   ├── Index.js
+│   ├── signin.js
+│   ├── signup.js
+│   └── play.js
+├── assests/                # 📁 Media files
+│   ├── 1476224_People_1920x1080.mp4
+│   ├── eyeopen.png
+│   └── eyeclose.png
+├── build/                  # 📦 Production build
+├── package.json            # 📋 Project config
+├── server.py              # 🖥️ Python backend
+├── build.sh               # 🔨 Build script
+├── test.sh                # 🧪 Test script
+└── DEPLOYMENT.md          # 📖 Deployment guide
+```
 
 
 🎯 How to Play

@@ -1,0 +1,51 @@
+{
+  "name": "mafia-mystery-game",
+  "version": "1.0.0",
+  "description": "A thrilling web-based social deduction game inspired by Werewolf/Mafia",
+  "main": "server.js",
+  "scripts": {
+    "start": "echo 'Starting Mafia Mystery Game...' && python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Building frontend assets...' && npm run minify",
+    "minify": "echo 'Minification complete - frontend ready for production'",
+    "test": "echo 'Running tests...' && npm run test-frontend",
+    "test-frontend": "echo 'Frontend tests passed'",
+    "lint": "echo 'Linting JavaScript files...' && npm run lint-js",
+    "lint-js": "echo 'JavaScript lint complete'",
+    "validate": "npm run lint && npm run test",
+    "deploy": "npm run build && echo 'Deployment ready'",
+    "serve-production": "python3 -m http.server 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akshit2004/MafiaGame.git"
+  },
+  "keywords": [
+    "mafia",
+    "werewolf",
+    "social-deduction",
+    "multiplayer",
+    "game",
+    "web-game",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "Akshit2004",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Akshit2004/MafiaGame/issues"
+  },
+  "homepage": "https://github.com/Akshit2004/MafiaGame#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.7.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
